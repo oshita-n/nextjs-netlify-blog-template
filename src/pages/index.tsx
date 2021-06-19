@@ -13,7 +13,7 @@ export default function Index() {
       <div className="container">
         <div>
           <h1>
-            WhisponBlog.<span className="fancy">.</span>
+            WhisponBlog<span className="fancy">.</span>
           </h1>
           <span className="handle">@noriakioshita</span>
           <h2>機械学習技術を中心に</h2>
