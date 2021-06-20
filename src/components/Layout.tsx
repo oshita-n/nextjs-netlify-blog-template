@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Navigation from "./Navigation";
 import 'katex/dist/katex.min.css';
-import { InlineMath, BlockMath } from 'react-katex';
 
 type Props = {
   children: React.ReactNode;
