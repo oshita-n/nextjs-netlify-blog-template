@@ -17,6 +17,7 @@ export default function Index() {
           </h1>
           <span className="handle">@noriakioshita</span>
           <h2>機械学習技術を中心に</h2>
+          $ 2 $
           <SocialList />
         </div>
       </div>

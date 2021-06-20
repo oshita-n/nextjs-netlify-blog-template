@@ -1,14 +1,12 @@
 ---
-slug: 主成分分析
+slug: pca
 title: 意味がわかる主成分分析
-
 date: 2021-06-20
-author: NoriakiOshita
+author: oshita
 tags:
   - 主成分分析
   - 機械学習
 ---
-
 ##主成分分析とは
 主成分分析(Principle Component Analysis)とは，どういったものなのかを説明したいと思います．主成分分析は多次元のデータを次元圧縮（データは減らない）する方法です．
 
@@ -32,14 +30,11 @@ tags:
 主成分を見つけるためには，分散が最大になるような軸を探します．
 分散はどのようなものかといえば以下の式のようにデータ$x_i$とデータ平均$\mu$の二乗和を平均nで割ったものです．（端的に言ってしまえば，データの散らばり具合を定義していることになります．）
 
-
-
-
 ####分散の定義
 
-```math
+$$
 Var[X] = E[(X - \mu)^2] = \frac{1}{n} \sum_{i=１}^n(x_i - \mu)^2
-```
+$$
 
 この時Xを確率変数といいます．右辺の$x_i$と同じです．定義から$x_i =\mu$の時分散は０になり，$\mu=0$のとき分散は最大となります．（$\mu > 0$）
 分散が最大となる軸を探すというのことは軸に最も近い確率変数を探すということになります．
@@ -70,27 +65,29 @@ n次正方行列において，
 ####固有多項式の定義
 $n$次正方行列Aに関して
 
-```math
+$$
 |A - \lambda E| = 0
-```
+$$
 をAの固有方程式という．
 
 例
 以下の２次正方行列の固有値と固有ベクトルを求めよ．
 
-```math
+$$
 A = 
 \begin{pmatrix}
 a & b \\ 
 c & d \end{pmatrix}
-```
+$$
+
 固有方程式は代入すればいいだけなので，
 
-```math
+$$
 |A-\lambda E| = |\begin{pmatrix} 1 & 2 \\ 3 & 2 \end{pmatrix} - \begin{pmatrix} \lambda & 0 \\ 0 & \lambda \end{pmatrix}| \\
 \\
 = |\begin{pmatrix} 1-\lambda & 2 \\ 3 & 2-\lambda \end{pmatrix}|
-```
+$$
+
 あとはサラスの公式で計算すればいいだけなので，
 $= (1-\lambda)(2-\lambda)- (2 ・ 3)$
 $=\lambda ^2 -3\lambda -4$
@@ -99,34 +96,34 @@ $=(\lambda + 1)(\lambda -4) = 0$
 
 固有値$\lambda_1=-1$に対する固有ベクトル
 
-```math
+$$
 \vec{p} = \begin{pmatrix}p_1 \\ p_2 \end{pmatrix} を求める．
-```
+$$
 
-```math
+$$
 \begin{pmatrix}1 & 2 \\ 3 & 2\end{pmatrix} \begin{pmatrix}p_1 \\ p_2 \end{pmatrix} = (-1)\begin{pmatrix}p_1 \\ p_2 \end{pmatrix} \\
 \Rightarrow p_1 + 2p_2 = -p_1, 3p_1 + 2p_2 = -p_2 \Rightarrow p_1 = -p_2
-```
+$$
 
 連立方程式を解くと
 $3p_1 = -3p_2 = p_1 = -p_2$となる．
 よってスカラー$\kappa \neq 0$を用いて$\lambda_1$に対応する固有ベクトル$\vec{p}$は次式で与えられる．
 
-```math
+$$
 \vec{p} = \kappa \begin{pmatrix} 1 \\ -1 \end{pmatrix}  ただし \kappaは0以外の整数(k \neq 0) 
-```
+$$
 
 また固有値$\lambda_2 = 4$に対する固有ベクトルは
 
-```math
+$$
 \vec{q} = \begin{pmatrix} q_1 \\q_2 \end{pmatrix} を求める．
-```
+$$
 
 上と同じ手順に解くと$\lambda_2=4$に対する固有ベクトル$\vec{q}$が求まる．
 
-```math
+$$
 \vec{q} =  \kappa \begin{pmatrix} 1 \\ \frac{3}{2} \end{pmatrix} (k \neq 0)
-```
+$$
 
 
 ###寄与率と累積寄与率
@@ -232,14 +229,6 @@ plt.show()
 ###まとめ
 最後のはデータをQiitaのアドベントカレンダーように急いで作ったのであくまで参考程度に解釈してほしい．自然のリアルなデータだと主成分分析は気づかない特徴を調査することができるので使えるだろう．またカーネルPCAなどもあるが私の現在のレベルでは難しいのでもう少しレベルアップしたらどこかで書きたい．
 また，主成分分析では主成分軸を見つけて関係している因子を自分で解釈するが，逆の発想で因子を自分で仮定して推定する手法に因子分析というものがある．それはおいおい書けたら書きたいと思う．
-
-###追記
-渡辺澄夫先生のページから
-http://watanabe-www.math.dis.titech.ac.jp/users/swatanab/dataan201905.pdf
-
-<img width="482" alt="スクリーンショット 2018-11-27 12.13.06.png" src="https://qiita-image-store.s3.amazonaws.com/0/33329/62330c21-d80e-4ad7-e80d-2d886a592e42.png">
-
-主成分分析の目的を面白く書かれておりました。考えてみると勉強になると思います。
 
 ###参考文献
 [統計科学研究所_R_主成分分析.ppt](http://www.statistics.co.jp/reference/software_R/statR_9_principal.pdf) から数式など参照させてもらいました．
